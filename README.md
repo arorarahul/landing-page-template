@@ -4,8 +4,11 @@ A modified landing page coded for dineout.co.in (Table booking and exploring res
 Features of this template contains:
 
 1) Responsive
+
 2) Different sidebar for mobile phone
+
 3) Parallax
+
 4) Good design
 
 
