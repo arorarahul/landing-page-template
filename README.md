@@ -1,7 +1,7 @@
 # landing-page-template
 A modified landing page coded for dineout.co.in (Table booking and exploring restaurants/ eateries)
 
-Features of this template contains:
+Features of this template:
 
 1) Responsive
 
