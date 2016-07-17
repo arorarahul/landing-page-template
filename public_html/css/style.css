@@ -1,0 +1,210 @@
+body{font-family: Open Sans; background: #EDEFED; height: auto;}
+.mainwrapper{position: relative;}
+.fa-bars{display: none;}
+
+.fadenow{height: 100vh; width: 100vw; background: #333; opacity: 0.8; left:0px; top: 0px; z-index: 1000; position: fixed;}
+.brandName, .headerOptions{margin-top: 15px;}
+.brand, .brand:hover, .headerOptions > div a{color: #fff; text-transform: uppercase; font-weight: bold; text-decoration: none; padding-bottom: 10px;}
+.headerOptions > div a:hover{border-bottom: 2px solid #F97157;}
+.brand{text-decoration: none;}
+.headerOptions > div{font-size: 12px;}
+.locationButton{background: none; border: 0px; color: #fff; font-weight: bold; margin-top: -10px;}
+.locationButton:hover,.locationButton:active, .locationButton:focus{background: none; border: 0px; color: #fff; font-weight: bold;}
+.fa-map-marker{color: #fff;}
+.mobilemenu{position: fixed; left: 0px; top: 0px; z-index: 999999; box-shadow: 0px 0px 5px #333;
+background: #fff; height: 100vh; width: 25vw; overflow-x: scroll; left: -25vw; -webkit-transition: 0.2s;-moz-transition: all 0.2s ease-in-out;-ms-transition: all 0.2s ease-in-out;
+-o-transition: all 0.2s ease-in-out;}
+.mobilemenuopen{-webkit-transition: 0.2s;-moz-transition: all 0.2s ease-in-out;-ms-transition: all 0.2s ease-in-out;
+-o-transition: all 0.2s ease-in-out; left: 0px;}
+.mobileIcon{margin-right: 10px; vertical-align: middle;-webkit-animation-name: example;
+    -webkit-animation-duration: 4s; 
+    -webkit-animation-iteration-count: infinite;
+    animation-name: rotateMobile;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;}
+@-webkit-keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+@keyframes rotateMobile {
+    0%   {-webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+    25%  {-webkit-transform: rotateY(90deg); transform: rotateY(90deg);}
+    50%  {-webkit-transform: rotateY(180deg); transform: rotateY(180deg);}
+    75%  {-webkit-transform: rotateY(270deg); transform: rotateY(270deg);}
+    100% {-webkit-transform: rotateY(360deg); transform: rotateY(360deg);}
+}
+.mainHeading > p{font-size: 72px;font-weight: 700;color: #fff;margin-top: 70px;}
+.bookingOptions{color: #fff; margin-top: 30px;}
+.bookingOptions div > ul{list-style: none;}
+.bookingOptions div > ul li{display: block; float: left;margin-right: 50px;}
+.bookingOptions div > ul li a{text-decoration: none; text-transform: uppercase; color: #fff; font-weight: bold; padding-bottom: 10px;}
+.bookingOptions div > ul li a:hover{text-decoration: none; color: #fff;}
+.active{border-bottom: 2px solid #F97157;}
+.formTable{margin-top: 35px;}
+.floatLeft{float: left;}
+.inputStyle{padding: 14px 10px; width: 200px; border: 0px; border-radius: 0px; color: #414141; font-size: 14px;  border-right: 1px solid #eee; }
+.buttonStyle{padding: 14px 30px; border-radius: 0px; border: 0px; font-size: 14px; border-right: 1px solid #eee; }
+.fa-angle-down{margin-left: 15px;}
+.getTable, .getTable:hover{padding: 14px 40px; text-transform: uppercase; border: 0px; border-radius: 0 2px 2px 0; background: #F97157;}
+.searchNow{margin-right: 10px;}
+.peopleDropdown, .dateDropdown, .timeDropdown{border-radius: 0px;margin-top: 0px; max-height: 260px; overflow: scroll; border: 0px; font-size: 14px; padding: 0px;}
+.peopleDropdown{width:203px;}
+.peopleButton{width: 203px;}
+.dateButton{width: 162px;}
+.timeButton{width: 160px;}
+.fa-glass{margin-right: 10px;}
+.dropdown-menu li{padding-top: 0px;}
+.dropdown-menu li a{padding: 15px;}
+.formTable p{color: #fff; margin-top: 10px; text-transform: uppercase; font-weight: bold; font-size: 12px;}
+.marginTop{margin-top: 50px;}
+.brandingContainer{background: #fff; overflow: hidden; padding: 0px;}
+.brandBackground{position: absolute; top: 0px; left: 0px; width: 100%; background: #333; height: 100%; opacity: 0.4; z-index: -1;}
+.brandBackgroundMain{position: absolute; top: 0px; left: 0px; width: 100%; background: #333; height: 100%; opacity: 0.5; z-index: -1;}
+.buttonBackground{background: #F97157; padding: 10px 60px; color: #fff; text-transform: uppercase; border: 0px; font-weight: bold; margin-top: 0px;}
+.brandDescription p:first-child{font-weight: bold; color: #565A5C; font-size: 24px; text-transform: uppercase; margin-top: 80px;}
+.brandDescription p:nth-child(2){color: #565A5C; font-size: 14px; text-transform: uppercase;}
+.brandDescription p:nth-child(4){color: #565A5C; font-size: 16px; text-transform: uppercase; font-weight: bold; margin-top: 20px;}
+.presents{margin-top: 15px; text-transform: uppercase; color:#414141; font-size: 14px;}
+.explore{color: #565A5C; font-weight: 900; font-size: 25px;}
+.peopleDineout{color: #565A5C; font-weight: normal; font-size: 16px; z-index: 999;}
+.trendingContainerHeading{margin-top: 20px;}
+.trendingContainer{margin-top: 20px;}
+.marginAttribute{margin-bottom: 30px;}
+.marginRight{margin-right: 30px;}
+.variableWidth{width: 46.9%;}
+.restaurantName{color: #fff; font-weight: bold;}
+.margintop{margin-top: 130px;}
+.cardBottom{position: absolute; bottom: 0px; padding: 15px; margin-left: -15px; width: 100%;
+background: #fff; color: #565A5C;}
+.dinerNumber{margin-right: 50px;}
+.validation{background: #fff; max-height: 600px; overflow: scroll;}
+.viewAll{background: #eee; border-radius: 0px; text-transform: uppercase; color: #565A5C;}
+.overlay{position: absolute; top: 0px; left: 0px; width: 100%; background: #333; height: 100%; opacity: 0.4; z-index: -1; border: 2px solid #eee;}
+.desc{color: #fff; margin-top: 70px; font-weight: bold; text-transform: uppercase;}
+.count{color: #fff;text-transform: uppercase;}
+.footerContainer{background: #202020;}
+.socialMedia{margin-right: 20px; color: #5F5F5F; font-size: 20px;}
+.socialIcons{border-top: 1px solid #5F5F5F; margin-top: 30px;}
+.socialIcons p{color: #5F5F5F; margin-top: 10px; margin-bottom: 40px;}
+.socialMediaIcons{margin-top: 30px;}
+.footerContainer p{
+    color: #5F5F5F; margin-top: 40px; margin-bottom: 20px;
+}
+.footerContainer ul{
+    color: #5F5F5F; margin-top: 20px; margin-bottom: 40px; list-style: none;
+}
+.footerContainer ul li{
+    line-height: 3;
+}
+.footerContainer ul li a{
+    color: #5F5F5F; text-decoration: none;
+    
+}
+.footerContainer ul li a:hover{
+    color: #5F5F5F;
+    
+}
+.validationsAll{padding: 50px; position: relative;}
+.review{margin-bottom: 50px; margin-top: 10px;}
+.round{border: 1px solid red; padding: 5px; border-radius: 50px;}
+.statsDineout{position: absolute; background: #F97157; height: 100%; right: 0px; top: 0px;}
+.statsDineout p{color: #fff; font-weight: normal; text-transform: uppercase;}
+.statsDineout p:first-child{margin-top: 220px;}
+.numberStat{font-size: 18px; font-weight: bold; margin-right: 5px;}
+.validationsAll .fa-user{color: #5F5F5F; vertical-align: middle; margin-top: 15px;}
+.validationsAll .review{color: #5F5F5F;}
+.parallaxContainer p {color: #fff; text-transform: uppercase; font-weight: bold; padding-top: 170px;}
+.mobilemenu ul {list-style: none; margin-top: 20px;}
+.mobilemenu ul li{padding: 20px 0px;}
+.mobilemenu ul li a{
+    display: block;
+    text-decoration: none;
+    color: #333;
+    
+}
+.phoneicon, .loginicon{margin-right: 10px;}
+.mobileheader{margin-top: 20px; border-bottom: 1px solid #eee; overflow: hidden; padding-bottom: 15px;}
+
+
+
+@media(max-width: 1200px){
+  .mainHeading > p{font-size: 56px; font-weight: 700;color: #fff;margin-top: 120px;}
+  .getTable, .getTable:hover{padding: 14px 305px; text-transform: uppercase; border: 0px; border-radius: 0 2px 2px 0; background: #F97157;}
+}   
+
+@media(max-width: 992px){
+  .variableWidth{width: 46%;}
+  .mainHeading > p{font-size: 46px; font-weight: 700;color: #fff;margin-top: 80px;}
+  .getTable, .getTable:hover{padding: 14px 206px; text-transform: uppercase; border: 0px; border-radius: 0 2px 2px 0; background: #F97157; margin-top: 5px;}
+  .inputStyle{width: 525px; margin-top: 5px;}
+  
+  .buttonBackground{margin-bottom: 40px;}
+  .locationButton{margin-right: -10px;}
+  .formMain{margin-left: 0%;}
+  .bookings{margin-left: 0%;}
+}
+
+
+
+@media(max-width: 767px){
+    .bookingOptions{margin-top: 60px;}
+    .headerOptions{
+        display: none;
+    }
+    .variableWidth{width: 100%;}
+    .mainHeading > p{font-size: 36px; font-weight: 700;color: #fff;margin-top: 60px;}
+    .fa-bars{display: block; color: #fff; float: left; font-size: 30px; margin-right: 15px;}
+    .mobilemenu{height: 100vh; width: 40vw; left: -40vw;}
+    .mobilemenuopen{left: 0px;}
+    .bookingOptions > ul{
+    margin-left: 8%;
+    }
+    .mainHeading > p{
+        padding-top: 20px;
+    }
+}
+
+@media(max-width: 692px){
+  
+  .buttonStyle{width: 100%; margin-top: 5px;}
+  .container{width: 96%;}
+  .parallaxContainer{display: none;}
+  .validation, .drives{display: none;}
+   .formMain{margin-left: 0%;}
+   .mainHeading > p{display: none;}
+  .floatLeft{float: none;}  
+  .dateButton, .dateDropdown, .peopleDropdown, .timeDropdown{width: 100%;}
+  .timeButton, .inputStyle{width: 100%;}
+    .bookingOptions > ul{
+    margin-left: 0%;
+}
+
+}
+
+
+@media(max-width:468px){
+    .mobilemenu{height: 100vh; width: 75vw; left: -75vw;}
+        .mobilemenuopen{left: 0px;}
+  .floatLeft{float: none;}
+  .buttonStyle{width: 100%; margin-top: 5px;}
+  .timeDropdown, .dateDropdown, .peopleDropdown, .inputStyle{width: 100%;}
+ .getTable, .getTable:hover{padding: 14px 30%;} 
+ .variableWidth{width: 100%;}
+.mainHeading > p{font-size: 20px;font-weight: 700;color: #fff;margin-top: 80px; display: none;}
+.bookingOptions > ul li{margin-right: 25px;}
+.locationButton{margin-right: -11px;}
+.buttonBackground{margin-bottom: 40px;}
+.formMain{margin-left: 0px;}
+.bookingOptions{margin-top: 35px;}
+.cityDropdown{margin-left: -50px;}
+.fa-map-marker{display: none;}
+.chooseCity{margin-top: 10px; margin-left: -10px;}
+
+
+}
+/*
+
+                     */   

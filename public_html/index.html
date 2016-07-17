@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Restaurants in Delhi, Online Restaurant Reservations | dineout</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+        <link rel="stylesheet" type="text/css" href="css/opensans.css" />
+        <link rel="stylesheet" href="css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>    
+    </head>
+    <body ng-app="myApp" ng-controller="dineout">
+        <div class='fadenow' ng-show='fadenow' ng-click="anitmobilefade()"></div>
+        <div style="background: url('images/cover4.jpg'); z-index: 1;background-size: cover; height: 450px;" class='mainwrapper'>
+            <div class='brandBackgroundMain'></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 brandName">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-7">
+                            <a href="#" class="brand">
+                                <i ng-click="mobileMenu()" class="fa fa-bars"></i><img src="images/dineout_logo.png" alt="dineout" height="30px"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-6 col-xs-5">
+                             <div class="dropdown chooseCity">
+                                <i class="fa fa-2x fa-map-marker"></i><button ng-click="chooseCity()" class="btn btn-default dropdown-toggle locationButton" type="button" id="dropdownMenu0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{city}}
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu peopleDropdown cityDropdown" aria-labelledby="dropdownMenu0">
+                                    <li><a ng-click="changeCity('Delhi')" href="#">Delhi</a></li>
+                                    <li><a ng-click="changeCity('Mumbai')" href="#">Mumbai</a></li>
+                                    <li><a ng-click="changeCity('Benguluru')" href="#">Benguluru</a></li>
+                                    <li><a ng-click="changeCity('Chennai')" href="#">Chennai</a></li>
+                                    <li><a ng-click="changeCity('Hyderabad')" href="#">Hyderabad</a></li>
+                                    <li><a ng-click="changeCity('Pune')" href="#">Pune</a></li>
+                                    <li><a ng-click="changeCity('Kolkata')" href="#">Kolkata</a></li>
+                                    <li><a ng-click="changeCity('Ahmedabad')" href="#">Ahmedabad</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-8 headerOptions">
+                        <div class="col-lg-4 col-md-4 col-sm-4"><p class="pull-right"><a href="#"><i class="fa fa-2x fa-mobile mobileIcon"></i>download app</a></p></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4"><p class="pull-right"><a href="#">we are hiring!</a></p></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4"><p class="pull-right"><a href="#">log in</a></p></div>
+                    </div>
+                    <div class="col-lg-12 mainHeading">
+                        <p class="text-center" ng-show="findTable">Reserve a Table</p>
+                        <p class="text-center" ng-show="findParty">Book a Party</p>
+                    </div>
+                    <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-9 col-md-9 col-sm-9 col-xs-12 bookingOptions">
+                        <div class="center-block">
+                            <ul>
+                                <li><a class="text-center" href="#" ng-click="changeSearch1()" ng-class="{active: findTable}">find a table</a></li>
+                                <li><a class="text-center" href="#" ng-click="changeSearch2()" ng-class="{active: findParty}">book a party</a></li>
+                            </ul>
+                        </div>    
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 formTable">
+                        <form ng-show="findTable" class="formMain">
+                            <div class="dropdown floatLeft">
+                                <button class="btn btn-default dropdown-toggle buttonStyle peopleButton" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{people}}
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu peopleDropdown" aria-labelledby="dropdownMenu1">
+                                    <li><a ng-click="changePeople('1')" href="#">1</a></li>
+                                    <li><a ng-click="changePeople('2')" href="#">2</a></li>
+                                    <li><a ng-click="changePeople('3')" href="#">3</a></li>
+                                    <li><a ng-click="changePeople('4')" href="#">4</a></li>
+                                    <li><a ng-click="changePeople('5')" href="#">5</a></li>
+                                    <li><a ng-click="changePeople('6')" href="#">6</a></li>
+                                    <li><a ng-click="changePeople('7')" href="#">7</a></li>
+                                    <li><a ng-click="changePeople('8')" href="#">8</a></li>
+                                    <li><a ng-click="changePeople('9')" href="#">9</a></li>
+                                    <li><a ng-click="changePeople('10')" href="#">10</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown floatLeft">
+                                <button class="btn btn-default dropdown-toggle buttonStyle dateButton" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{date}}
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu dateDropdown" aria-labelledby="dropdownMenu2">
+                                    <li><a ng-click="changeDate('Today')" href="#">Today</a></li>
+                                    <li><a ng-click="changeDate('25th Jan, 2016')" href="#">25th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('26th Jan, 2016')" href="#">26th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('27th Jan, 2016')" href="#">27th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('28th Jan, 2016')" href="#">28th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('29th Jan, 2016')" href="#">29th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('30th Jan, 2016')" href="#">30th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('31st Jan, 2016')" href="#">31th Jan, 2016</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown floatLeft">
+                                <button class="btn btn-default dropdown-toggle buttonStyle timeButton" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{time}}
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu timeDropdown" aria-labelledby="dropdownMenu3">
+                                    <li><a ng-click="changeTime('12:00 PM')" href="#">12:00 PM</a></li>
+                                    <li><a ng-click="changeTime('12:30 PM')" href="#">12:30 PM</a></li>
+                                    <li><a ng-click="changeTime('1:00 PM')" href="#">1:00 PM</a></li>
+                                    <li><a ng-click="changeTime('1:30 PM')" href="#">1:30 PM</a></li>
+                                    <li><a ng-click="changeTime('2:00 PM')" href="#">2:00 PM</a></li>
+                                    <li><a ng-click="changeTime('2:30 PM')" href="#">2:30 PM</a></li>
+                                    <li><a ng-click="changeTime('3:00 PM')" href="#">3:00 PM</a></li>
+                                    <li><a ng-click="changeTime('3:30 PM')" href="#">3:30 PM</a></li>
+                                    <li><a ng-click="changeTime('4:00 PM')" href="#">4:00 PM</a></li>
+                                    <li><a ng-click="changeTime('4:30 PM')" href="#">4:30 PM</a></li>
+                                    <li><a ng-click="changeTime('5:30 PM')" href="#">5:00 PM</a></li>
+                                    <li><a ng-click="changeTime('6:00 PM')" href="#">5:30 PM</a></li>
+                                    <li><a ng-click="changeTime('6:30 PM')" href="#">6:30 PM</a></li>
+                                    <li><a ng-click="changeTime('7:00 PM')" href="#">7:00 PM</a></li>
+                                    <li><a ng-click="changeTime('7:30 PM')" href="#">7:30 PM</a></li>
+                                    <li><a ng-click="changeTime('8:00 PM')" href="#">8:00 PM</a></li>
+                                    <li><a ng-click="changeTime('8:30 PM')" href="#">8:30 PM</a></li>
+                                    <li><a ng-click="changeTime('9:00 PM')" href="#">9:00 PM</a></li>
+                                    <li><a ng-click="changeTime('9:30 PM')" href="#">9:30 PM</a></li>
+                                    <li><a ng-click="changeTime('10:00 PM')" href="#">10:00 PM</a></li>
+                                    <li><a ng-click="changeTime('10:30 PM')" href="#">10:30 PM</a></li>
+                                </ul>
+                            </div>
+                            <div class="inputLocation floatLeft">
+                                <input type="text" class="inputStyle" placeholder="Restaurant or Location">
+                            </div>
+                            <div class="floatLeft">
+                                <button class="btn btn-warning btn-block getTable"><i class="fa fa-search searchNow"></i>find a table</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                        <form ng-show="findParty" class="formMain">
+                            <div class="dropdown floatLeft">
+                                <button class="btn btn-default dropdown-toggle buttonStyle peopleButton" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{people}}
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu peopleDropdown" aria-labelledby="dropdownMenu1">
+                                    <li><a ng-click="changePeople('10-15')" href="#">10-15</a></li>
+                                    <li><a ng-click="changePeople('15-20')" href="#">15-20</a></li>
+                                    <li><a ng-click="changePeople('20-30')" href="#">20-30</a></li>
+                                    <li><a ng-click="changePeople('30-40')" href="#">30-40</a></li>
+                                    <li><a ng-click="changePeople('40-50')" href="#">40-50</a></li>
+                                    <li><a ng-click="changePeople('50-70')" href="#">50-70</a></li>
+                                    <li><a ng-click="changePeople('70-100')" href="#">70-100</a></li>
+                                    <li><a ng-click="changePeople('more than 100')" href="#">more than 100</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown floatLeft">
+                                <button class="btn btn-default dropdown-toggle buttonStyle dateButton" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{date}}
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu dateDropdown" aria-labelledby="dropdownMenu2">
+                                    <li><a ng-click="changeDate('Today')" href="#">Today</a></li>
+                                    <li><a ng-click="changeDate('25th Jan, 2016')" href="#">25th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('26th Jan, 2016')" href="#">26th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('27th Jan, 2016')" href="#">27th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('28th Jan, 2016')" href="#">28th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('29th Jan, 2016')" href="#">29th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('30th Jan, 2016')" href="#">30th Jan, 2016</a></li>
+                                    <li><a ng-click="changeDate('31st Jan, 2016')" href="#">31th Jan, 2016</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown floatLeft">
+                                <button class="btn btn-default dropdown-toggle buttonStyle timeButton" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{time}}
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu timeDropdown" aria-labelledby="dropdownMenu3">
+                                    <li><a ng-click="changeTime('12:00 PM')" href="#">12:00 PM</a></li>
+                                    <li><a ng-click="changeTime('12:30 PM')" href="#">12:30 PM</a></li>
+                                    <li><a ng-click="changeTime('1:00 PM')" href="#">1:00 PM</a></li>
+                                    <li><a ng-click="changeTime('1:30 PM')" href="#">1:30 PM</a></li>
+                                    <li><a ng-click="changeTime('2:00 PM')" href="#">2:00 PM</a></li>
+                                    <li><a ng-click="changeTime('2:30 PM')" href="#">2:30 PM</a></li>
+                                    <li><a ng-click="changeTime('3:00 PM')" href="#">3:00 PM</a></li>
+                                    <li><a ng-click="changeTime('3:30 PM')" href="#">3:30 PM</a></li>
+                                    <li><a ng-click="changeTime('4:00 PM')" href="#">4:00 PM</a></li>
+                                    <li><a ng-click="changeTime('4:30 PM')" href="#">4:30 PM</a></li>
+                                    <li><a ng-click="changeTime('5:30 PM')" href="#">5:00 PM</a></li>
+                                    <li><a ng-click="changeTime('6:00 PM')" href="#">5:30 PM</a></li>
+                                    <li><a ng-click="changeTime('6:30 PM')" href="#">6:30 PM</a></li>
+                                    <li><a ng-click="changeTime('7:00 PM')" href="#">7:00 PM</a></li>
+                                    <li><a ng-click="changeTime('7:30 PM')" href="#">7:30 PM</a></li>
+                                    <li><a ng-click="changeTime('8:00 PM')" href="#">8:00 PM</a></li>
+                                    <li><a ng-click="changeTime('8:30 PM')" href="#">8:30 PM</a></li>
+                                    <li><a ng-click="changeTime('9:00 PM')" href="#">9:00 PM</a></li>
+                                    <li><a ng-click="changeTime('9:30 PM')" href="#">9:30 PM</a></li>
+                                    <li><a ng-click="changeTime('10:00 PM')" href="#">10:00 PM</a></li>
+                                    <li><a ng-click="changeTime('10:30 PM')" href="#">10:30 PM</a></li>
+                                </ul>
+                            </div>
+                            <div class="inputLocation floatLeft">
+                                <input type="text" class="inputStyle" placeholder="Venue">
+                            </div>
+                            <div class="floatLeft">
+                                <button class="btn btn-warning btn-block getTable"><i class="fa fa-glass"></i>book now</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                        <p class="bookings">for bookings call +91-9212340202</p>
+                        
+                    </div>
+                </div>
+            </div> 
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class='mobilemenu' ng-class="{mobilemenuopen: opennow}">
+            <div class='mobileheader'>
+                <div class="col-xs-4 mobilearrow" ng-click="anitmobilefade()"><i class="fa fa-arrow-left pull-left"></i></div>
+                <div class="col-xs-8 mobilebrand"><img src="images/mobilelogo.png" height="30px"></div>
+            </div>
+            <div class="col-xs-12">
+                <ul style="padding-left: 10px;">
+                    <li><a href="#"><i class="fa fa-2x fa-mobile mobileIcon"></i>Download App</a></li>
+                    <li><a href="#"><i class="glyphicon loginicon glyphicon-log-in"></i>Login</a></li>
+                    <li>
+                        <div class="pull-left"><a href="#"><i class="fa phoneicon fa-book"></i> About</a></div>
+                        <div class="clearfix"></div>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">We are Hiring!</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container marginTop brandingContainer">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" style="background: url('images/carlsberg.jpg'); height: 345px; background-size: cover;">
+                        <div class='brandBackground'></div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 brandDescription">
+                        <p class='text-center'>carlsberg</p>
+                        <p class='text-center'>Probably the best in the world</p>
+                        <p class='text-center presents'>presents</p>
+                        <p class='text-center'>best rated restaurants</p>
+                        <div class='text-center'>
+                            <button class='text-center btn-btn-default buttonBackground'>reserve now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='container trendingContainerHeading'>
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <h2 class='text-center explore'>See where people dineout</h2>
+                    <p class='text-center peopleDineout'>Exlore more places</p>
+                </div>
+            </div>
+        </div>
+        <div class='container trendingContainer'>
+            <div class='row'>
+                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 marginAttribute' style='background: url("images/people1.jpg"); height: 380px; background-size: cover; z-index: 1;'>
+                    <div class='brandBackground'></div>
+                    <h3 class="text-center restaurantName" style="margin-top: 130px;">West Side Story</h3>
+                    <h5 class="text-center restaurantName">Rajouri Garden</h5>
+                    <div class='cardBottom'>
+                        <p class='pull-left diners'><span class='dinerNumber'><i class="fa fa-heart-o"></i> 1462 Diners</span><span class='dinerNumber'><i class="fa fa-star-o"></i>  4.7 Rating</span></p>
+                    </div>
+                </div>
+                <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12 marginAttribute marginRight' style='background: url("images/people2.jpg") no-repeat; height: 380px; background-size: cover; z-index: 1;'>
+                    <div class='brandBackground'></div>
+                    <h3 class="text-center restaurantName margintop">Ambrosia Bliss</h3>
+                    <h5 class="text-center restaurantName">Cannaught Place</h5>
+                    <div class='cardBottom'>
+                        <p class='pull-left diners'><span class='dinerNumber'><i class="fa fa-heart-o"></i> 1190 Diners</span><span class='dinerNumber'><i class="fa fa-star-o"></i>  4.5 Rating</span></p>
+                    </div>
+                </div>
+                <div class='col-lg-5 col-md-6 col-sm-5 variableWidth col-xs-12 marginAttribute' style='background: url("images/people3.jpg") no-repeat; height: 380px; background-size: cover; z-index: 1;'>
+                    <div class='brandBackground'></div>
+                    <h3 class="text-center restaurantName margintop">Jungle Jamboree</h3>
+                    <h5 class="text-center restaurantName">Cannaught Place</h5>
+                    <div class='cardBottom'>
+                        <span class='dinerNumber'><i class="fa fa-heart-o"></i> 1011 Diners</span><span class='dinerNumber'><i class="fa fa-star-o"></i>  4.4 Rating</span>
+                    </div>
+                </div>
+                <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12 marginAttribute marginRight' style='background: url("images/people4.jpg"); height: 380px; background-size: cover; z-index: 1;'>
+                    <div class='brandBackground'></div>
+                    <h3 class="text-center restaurantName margintop">Cafe Public Connection</h3>
+                    <h5 class="text-center restaurantName">Cannaught Place</h5>
+                    <div class='cardBottom'>
+                        <span class='dinerNumber'><i class="fa fa-heart-o"></i> 990 Diners</span><span class='dinerNumber'><i class="fa fa-star-o"></i>  4.2 Rating</span>
+                    </div>
+                </div>
+                <div class='col-lg-5 col-md-5 col-sm-5 variableWidth col-xs-12 marginAttribute' style='background: url("images/people5.jpg"); height: 380px; background-size: cover; z-index: 1;'>
+                    <div class='brandBackground'></div>
+                    <h3 class="text-center restaurantName margintop">Ikka - The Ace Bar</h3>
+                    <h5 class="text-center restaurantName">Rajouri Garden</h5>
+                    <div class='cardBottom'>
+                        <span class='dinerNumber'><i class="fa fa-heart-o"></i> 881 Diners</span><span class='dinerNumber'><i class="fa fa-star-o"></i>  4.2 Rating</span>
+                    </div>
+                </div>
+                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 marginAttribute' style='background: url("images/people6.jpg"); height: 380px; background-size: cover; z-index: 1;'>
+                    <div class='brandBackground'></div>
+                    <h3 class="text-center restaurantName margintop">Masabaa Lounge</h3>
+                    <h5 class="text-center restaurantName">Punjabi Bagh</h5>
+                    <div class='cardBottom'>
+                        <span class='dinerNumber'><i class="fa fa-heart-o"></i> 683 Diners</span><span class='dinerNumber'><i class="fa fa-star-o"></i>  4.0 Rating</span>
+                    </div>
+                </div>
+                <button class='btn btn-block btn-default viewAll'>view all</button>
+            </div>
+        </div>
+        <div class='container trendingContainerHeading'>
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <h2 class='text-center explore'>Search by category</h2>
+                </div>
+            </div>
+        </div>
+        <div class='container searchCategories marginTop'>
+            <div class='row'>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st4.dineout-cdn.co.in/images/images/new_web_img/luxury_dining.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>luxury dining</p>
+                    <p class='text-center count'>122 places</p>
+                </div>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st2.dineout-cdn.co.in/images/images/new_web_img/carlsberg_glass.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>carlsberg club glasses</p>
+                    <p class='text-center count'>27 places</p>
+                </div>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st4.dineout-cdn.co.in/images/images/new_web_img/chinese.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>chinese</p>
+                    <p class='text-center count'>1069 places</p>
+                </div>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st3.dineout-cdn.co.in/images/images/new_web_img/italian.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>italian</p>
+                    <p class='text-center count'>440 places</p>
+                </div>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st1.dineout-cdn.co.in/images/images/new_web_img/south_indian.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>south indian</p>
+                    <p class='text-center count'>143 places</p>
+                </div>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st4.dineout-cdn.co.in/images/images/new_web_img/romantic.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>romantic</p>
+                    <p class='text-center count'>39 places</p>
+                </div>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st1.dineout-cdn.co.in/images/images/new_web_img/happy_hours.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>happy hours</p>
+                    <p class='text-center count'>135 places</p>
+                </div>
+                <div class='col-lg-3 col-md-3 col-sm-3 col-xs-12' style='background: url("http://st4.dineout-cdn.co.in/images/images/new_web_img/fine_dining.jpg"); background-size: cover; height: 180px; z-index: 1;'>
+                    <div class="overlay"></div>
+                    <p class='text-center desc'>fine dining</p>
+                    <p class='text-center count'>162 places</p>
+                </div>
+            </div>
+        </div>
+        <div class="parallaxContainer marginTop" style="background: url('images/cover4.jpg') fixed; background-size: cover; height: 400px;">
+            <p class="text-center">Because dining out is an experience <i class="fa fa-heart-o"></i></p>
+        </div>
+        <div class='container trendingContainerHeading drives'>
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <h2 class='text-center explore'>What drives us?</h2>
+                </div>
+            </div>
+        </div>
+        <div class='container validation trendingContainerHeading'>
+            <div class="row validationsAll">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-10">
+                   <i class="fa fa-2x fa-user"></i>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 review">
+                    <p class="pull-left">Great service. I got a fabulous table on a Saturday afternoon when people were waiting outside. The experience was simply superb. The discount on the bill results in massive savings.</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <i class="fa fa-2x fa-user"></i>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <p class="pull-left review">
+                        loved the roof top ambience. The service was really amazing. love you Dineout.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <i class="fa fa-2x fa-user"></i>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <p class="pull-left review">
+                        The Place was Quite Good and Spacious ( which is difficult to Find nowdays at most cafes ) .. Hats Off to The Chilly Garlic Noodles.. overall A really Good Experience..
+                    </p>
+                </div>
+                <div class="col-lg-2 col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <i class="fa fa-2x fa-user"></i>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <p class="pull-left review">
+                        The place is a surprise. It reminded me of a sidewok / wok in the clouds but with a more demure and delightful experience. The food is excellent. Cost for two comes down with dineout. Super recommended
+                    </p>
+                </div>
+                </div>
+                <div class="statsDineout col-lg-3">
+                    <p class="text-center"><span class="numberStat">2 million</span> people seated</p>
+                    <p class="text-center"><span class="numberStat">2000</span> restaurants</p>
+                    <p class="text-center"><span class="numberStat">8</span> cities</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid footerContainer marginTop">
+            <footer class="container marginTop">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img src="images/dineout_logo.png" height="30px"/>
+                    </div>
+                    <div class="col-lg-12">
+                        <p class="pull-left aboutDineout">
+                            Booking a restaurant through dineout is easier and simpler. In a couple of clicks you can search restaurant by area, cuisine or type of place. Make your reservations any time, any place, 24 hours a day, seven days a week and receive your booking confirmation by email and SMS. All you have to do is decide where, what and when you want to eat.
+                        </p>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <ul>
+                            <li><a href="#">We are hiring</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <ul>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <ul>
+                            <li><a href="#">Media</a></li>
+                            <li><a href="#">Top Locations</a></li>
+                            <li><a href="#">Add a Restaurant</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <ul>
+                            <li><a href="#">Call +91-9212340202 for reservations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12 socialIcons">
+                    <div class="text-center socialMediaIcons"> 
+                        <span class="socialMedia"><i class="fa fa-facebook"></i></span>
+                        <span class="socialMedia"><i class="fa fa-twitter"></i></span>
+                        <span class="socialMedia"><i class="fa fa-linkedin"></i></span>
+                        <span class="socialMedia"><i class="fa fa-google-plus"></i></span>
+                        <span class="socialMedia"><i class="fa fa-pinterest"></i></span>
+                    </div> 
+                    <p class="text-center">&copy; Dineout 2015-2016</p>
+                </div>
+                
+            </footer>
+        </div>
+        
+
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/angular.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
+    </body>
+</html>
