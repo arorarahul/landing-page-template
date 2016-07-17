@@ -15,6 +15,7 @@ Features of this template:
 ![Screenshot](screenshot1.png)
 
 Image below showing collapsible sidebar for mobile phone
+
 ![Screenshot](screenshot2.png)
 
 
